@@ -26,4 +26,32 @@ svg{width:100%;max-width:820px;height:auto;display:block;margin:auto}
 .tree.on .orn:nth-of-type(2n){animation-delay:.4s}
 .tree.on .orn:nth-of-type(3n){animation-delay:.8s}
 @keyframes bl{0%{fill:#ff4d4d}33%{fill:#ffd23f}66%{fill:#4da3ff}100%{fill:#ff7bf0}}
+.tree.on{filter:drop-shadow(0 0 9px #4ade80)}<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maqueta Domótica</title>
+<style>
+:root{--bg:#10141c;--floor:#1a2030;--wall:#8fa3c4;--ink:#c9d4ea;--on:#ffd23f;--off:#4a5675;--glow:rgba(255,210,63,.13)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,sans-serif;padding:12px}
+h1{font-size:1.1rem;margin:0 0 8px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+input,button{background:#1f2738;color:var(--ink);border:1px solid #33405e;border-radius:6px;padding:7px 10px;font-size:.85rem}
+button{cursor:pointer}button:hover{border-color:var(--on)}
+#st{font-size:.8rem;opacity:.8}
+svg{width:100%;max-width:820px;height:auto;display:block;margin:auto}
+.room{fill:var(--floor);transition:fill .3s}
+.room.lit{fill:#3a3520}
+.room.verde{fill:#17261d}.room.verde.lit{fill:#244a30}
+.tree .t{fill:#1d3a26;stroke:#4a5675;stroke-width:2;transition:all .3s}
+.tree .orn{fill:#4a5675;transition:fill .3s}
+.tree .star{fill:#4a5675;transition:fill .3s}
+.tree.on .t{fill:#1f8a3b;stroke:#6fe08a}
+.tree.on .star{fill:#ffd23f}
+.tree.on .orn{animation:bl 1.2s infinite alternate}
+.tree.on .orn:nth-of-type(2n){animation-delay:.4s}
+.tree.on .orn:nth-of-type(3n){animation-delay:.8s}
+@keyframes bl{0%{fill:#ff4d4d}33%{fill:#ffd23f}66%{fill:#4da3ff}100%{fill:#ff7bf0}}
 .tree.on{filter:drop-shadow(0 0 9px #4ade80)}
