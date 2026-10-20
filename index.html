@@ -119,7 +119,7 @@ $('text',{x:340,y:765,class:'dim'},svg,'20 cm');$('text',{x:728,y:765,class:'dim
 $('text',{x:2,y:140,class:'dim'},svg,'10,4');$('text',{x:575,y:14,class:'dim'},svg,'3,14 cm');
 
 // ---------- Puertas ----------
-// hx,hy bisagra · a ángulo cerrado (0=derecha, 90=abajo) · s ±90 giro · L largo
+// hx,hy bisagra · a ángulo cerrado (0=derecha, 90=abajo) · s giro · L largo
 const rad=d=>d*Math.PI/180;
 function door(id,hx,hy,a,s,L=60){
  const g=$('g',{class:'door',id});
@@ -130,11 +130,11 @@ function door(id,hx,hy,a,s,L=60){
  $('circle',{cx:hx,cy:hy,r:4,fill:'#e8b86d'},g);
  let open=false;g.addEventListener('click',()=>{open=!open;dl.style.transform=open?`rotate(${s}deg)`:'none'});
 }
-door('p1',70,490,0,-90);    // Baño ↔ Dormitorio (abre hacia el baño)
-door('p2',350,330,90,90);   // Baño ↔ Cocina/comedor (abre hacia el baño)
-door('p3',350,585,90,180);  // Sala ↔ Dormitorio (abre 180°, queda pegada al muro)
-door('p4',690,737,270,-90);  // Porche ↔ Sala (abajo, pegada a la pared; la hoja abre hacia abajo)
-door('p5',358,250,0,-90);   // Cocina ↔ Garage (esquina izquierda de la cocina; abre hacia el garage)
+door('p1',70,490,0,-90);    // Baño ↔ Dormitorio (90°: reposa en muro oeste del baño)
+door('p2',350,330,90,180);  // Baño ↔ Cocina (180°: reposa en muro baño/cocina)
+door('p3',350,585,90,180);  // Sala ↔ Dormitorio (180°: reposa en muro dorm/sala)
+door('p4',690,737,270,-90); // Porche ↔ Sala (90°: reposa en muro sur del porche)
+door('p5',358,250,0,-180);  // Cocina ↔ Garage (180°: reposa en muro norte de la cocina)
 
 // Puerta del garage: roja, abre HACIA ARRIBA (se recoge)
 (function(){
@@ -157,7 +157,8 @@ const luces=[
  ['dorm_x1','x',240,620,'dorm'],['dorm_f2','f',52,554,'dorm'],['dorm_f3','f',52,716,'dorm'],
  ['cocina_x1','x',470,335,'cocina'],
  ['sala_x1','x',520,535,'sala'],
- ['porche_f1','f',706,640,'porche']
+ ['porche_f1','f',706,640,'porche'],
+ ['porche_f2','f',705,395,'porche']
 ];
 const estado={},byRoom={};
 const ESP_IP='';// <- escribe aquí la IP del ESP32 (ej. '192.168.1.50')
